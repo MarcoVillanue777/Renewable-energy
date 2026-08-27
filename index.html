@@ -82,24 +82,105 @@
 
     </section>
 
+<section id="energy" class="energy-section">
 
-    <!-- ENERGY CAROUSEL -->
-    <section id="energy" class="energy-section">
-
-        <div class="section-heading">
-            <div>
-                <p class="section-label">EXPLORE</p>
-                <h2>Three Sources of Clean Energy</h2>
-            </div>
-
-            <div class="carousel-buttons">
-                <button onclick="changeSlide(-1)">←</button>
-                <button onclick="changeSlide(1)">→</button>
-            </div>
+    <div class="section-heading">
+        <div>
+            <p class="section-label">EXPLORE</p>
+            <h2>Three Sources of Clean Energy</h2>
         </div>
 
+        <div class="carousel-buttons">
+            <button id="prevBtn">←</button>
+            <button id="nextBtn">→</button>
+        </div>
+    </div>
 
-        <div class="carousel">
+    <div class="carousel" id="energyCarousel">
+
+        <article class="energy-card active">
+
+            <div class="energy-image solar-image"></div>
+
+            <div class="energy-content">
+
+                <span class="energy-number">01</span>
+
+                <h3>Solar Energy</h3>
+
+                <p>
+                    Solar panels capture energy from sunlight
+                    and convert it into electricity.
+                </p>
+
+                <a href="details.html?topic=solar" class="learn-btn">
+                    Learn More →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="energy-card">
+
+            <div class="energy-image wind-image"></div>
+
+            <div class="energy-content">
+
+                <span class="energy-number">02</span>
+
+                <h3>Wind Energy</h3>
+
+                <p>
+                    Wind turbines use moving air to rotate
+                    blades and generate electricity.
+                </p>
+
+                <a href="details.html?topic=wind" class="learn-btn">
+                    Learn More →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="energy-card">
+
+            <div class="energy-image hydro-image"></div>
+
+            <div class="energy-content">
+
+                <span class="energy-number">03</span>
+
+                <h3>Hydroelectric Power</h3>
+
+                <p>
+                    Hydroelectric systems use moving water
+                    to turn turbines and generate electricity.
+                </p>
+
+                <a href="details.html?topic=hydro" class="learn-btn">
+                    Learn More →
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+
+    <div class="carousel-dots">
+
+        <button class="dot active" data-slide="0"></button>
+        <button class="dot" data-slide="1"></button>
+        <button class="dot" data-slide="2"></button>
+
+    </div>
+
+</section>
 
             <!-- SOLAR -->
             <article class="energy-card active">
