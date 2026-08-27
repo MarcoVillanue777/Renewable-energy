@@ -1,131 +1,360 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoPulse | Sustainable Energy Ecosystem</title>
+    <title>EcoPulse | Renewable Energy</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- Animated Particle Canvas System Background -->
-    <div class="moving-bg"></div>
 
-    <!-- Main Navigation Header -->
+<body>
+
+    <div class="background-glow"></div>
+
+    <!-- NAVIGATION -->
     <header>
         <div class="logo">Eco<span>Pulse</span></div>
+
         <nav>
-            <button class="nav-btn active" data-page="home">Home</button>
-            <button class="nav-btn" data-page="how-it-works">How It Works</button>
-            <button class="nav-btn" data-page="initiatives">Student Initiatives</button>
-            <button class="nav-btn" data-page="get-involved">Get Involved</button>
+            <a href="#home">Home</a>
+            <a href="#energy">Energy</a>
+            <a href="#initiatives">Initiatives</a>
+            <a href="#involved">Get Involved</a>
         </nav>
-        <div class="search-container">
-            <input type="text" class="glowing-search" placeholder="Search clean energy...">
-        </div>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
     </header>
 
-    <!-- Unified Screen Manager Section -->
-    <main class="content-wrapper">
-        
-        <!-- PAGE 1: HOME -->
-        <section id="home" class="page-section active">
-            <div class="hero-content">
-                <h1>Powering Tomorrow, Natively.</h1>
-                <p>Explore how modern student engineering, grass-root initiatives, and next-generation clean tech modules combat carbon footprints to reshape planetary health metrics globally.</p>
-                <button class="cta-btn" onclick="navigateTo('how-it-works')">Launch Clean Energy Hub</button>
-            </div>
-        </section>
 
-        <!-- PAGE 2: HOW IT WORKS (CAROUSEL HUB) -->
-        <section id="how-it-works" class="page-section">
-            <h2>The Mechanics of Clean Energy</h2>
-            <p class="subtitle">A structural look at how clean, endless resource streams are converted safely into grid power without burning fossil fuels.</p>
-            
-            <div class="carousel-container">
-                <div class="carousel-slide active">
-                    <div class="slide-img-placeholder" style="background-image: url('https://unsplash.com');"></div>
-                    <h3>☀️ Solar Power Arrays</h3>
-                    <p>Photovoltaic matrix cells capture atomic photon packets from sunlight, freeing internal electrons to generate a direct current electrical load cleanly.</p>
-                    <button class="explore-details-btn" onclick="openDeepDive('solar')">Deep Dive: Solar Energy</button>
-                </div>
-                <div class="carousel-slide">
-                    <div class="slide-img-placeholder" style="background-image: url('https://unsplash.com');"></div>
-                    <h3>💨 Kinetic Wind Energy</h3>
-                    <p>Massive high-altitude atmospheric wind currents apply aerodynamic forces to turn carbon-fiber generator blades, harvesting pure kinetic output safely.</p>
-                    <button class="explore-details-btn" onclick="openDeepDive('wind')">Deep Dive: Wind Energy</button>
-                </div>
-                <div class="carousel-slide">
-                    <div class="slide-img-placeholder" style="background-image: url('https://unsplash.com');"></div>
-                    <h3>💧 Hydroelectric Basins</h3>
-                    <p>Gravitational mass movements of water flow downward through massive dams, driving large internal magnets inside turbines to anchor local electricity grids.</p>
-                    <button class="explore-details-btn" onclick="openDeepDive('hydro')">Deep Dive: Hydro Power</button>
-                </div>
-                <button class="carousel-control prev" onclick="moveSlide(-1)">&#10094;</button>
-                <button class="carousel-control next" onclick="moveSlide(1)">&#10095;</button>
-            </div>
-        </section>
+    <!-- HERO -->
+    <section id="home" class="hero">
 
-        <!-- PAGE 3: STUDENT INITIATIVES -->
-        <section id="initiatives" class="page-section">
-            <h2>Student-Led Sustainability Projects</h2>
-            <p class="subtitle">Real-world sustainable frameworks built, deployed, and scaled directly by active youth innovation teams across engineering campuses.</p>
-            <div class="grid-container">
-                <div class="card" onclick="openDeepDive('campus-solar')">
-                    <div class="card-img" style="background-image: url('https://unsplash.com');"></div>
-                    <h4>Campus Solar Grid Initiative</h4>
-                    <p>How student researchers outfitted dormitory rooftops with tracking arrays to capture structural efficiency gains.</p>
-                    <span class="card-link-hint">Click to read case study &rarr;</span>
-                </div>
-                <div class="card" onclick="openDeepDive('kinetic-path')">
-                    <div class="card-img" style="background-image: url('https://unsplash.com');"></div>
-                    <h4>The Kinetic Walkway Grid</h4>
-                    <p>Converting daily student foot traffic into local low-voltage energy reserves to safely light public campus spaces.</p>
-                    <span class="card-link-hint">Click to read case study &rarr;</span>
-                </div>
-            </div>
-        </section>
+        <div class="hero-text">
+            <p class="small-title">POWERING A CLEANER FUTURE</p>
 
-        <!-- PAGE 4: GET INVOLVED & RESOURCES -->
-        <section id="get-involved" class="page-section">
-            <h2>Clean Tech Innovation Resources</h2>
-            <p class="subtitle">Kickstart your portfolio with functional open-source developer blueprints, hardware toolkits, and seed financial grants.</p>
-            <div class="grid-container">
-                <div class="card resource-card" onclick="openDeepDive('open-source')">
-                    <h4>Open-Source CleanTech Hub</h4>
-                    <p>Download structural firmware codebases, schematics, and micro-grid controller telemetry layers freely built for everyone.</p>
-                    <span class="card-link-hint">Access Developer Repos &rarr;</span>
-                </div>
-                <div class="card resource-card" onclick="openDeepDive('incubators')">
-                    <h4>Green Innovation Incubators</h4>
-                    <p>Connect into specialized venture funding networks offering dedicated project grants to student-led ecological prototypes.</p>
-                    <span class="card-link-hint">View Capital Sources &rarr;</span>
-                </div>
-            </div>
-        </section>
-    </main>
+            <h1>
+                Energy for
+                <span>Tomorrow.</span>
+            </h1>
 
-    <!-- GLOBAL INTERACTIVE DEEP DIVE DRAWER (DYNAMIC MODAL FOR CONTENT EXTRACTION) -->
-    <div id="deepDiveDrawer" class="drawer-overlay">
-        <div class="drawer-content">
-            <button class="close-drawer-btn" onclick="closeDeepDive()">&times; Close Article</button>
-            <div id="drawerImageHeader" class="drawer-hero-banner"></div>
-            <div class="drawer-body-text">
-                <h2 id="drawerTitle">Detailed Expansion Title</h2>
-                <div id="drawerFullDescription">Detailed texts will parse context dynamically here.</div>
-                
-                <!-- Dedicated Educational Video Component -->
-                <div class="video-integration-box">
-                    <h3>🎬 Video Explainer & Multimedia Context</h3>
-                    <div class="video-container">
-                        <iframe id="drawerVideoFrame" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                </div>
+            <p>
+                Discover how solar, wind, and hydroelectric power
+                can create cleaner and more sustainable communities.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#energy" class="main-btn">
+                    Explore Energy
+                </a>
+
+                <a href="#involved" class="secondary-btn">
+                    Get Involved
+                </a>
             </div>
         </div>
-    </div>
+
+        <div class="hero-visual">
+            <div class="energy-orbit">
+                <div class="orbit-circle"></div>
+                <div class="sun">☀</div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- INTRODUCTION -->
+    <section class="intro">
+
+        <p class="section-label">WHY RENEWABLE ENERGY?</p>
+
+        <h2>
+            The future doesn't have to
+            depend on fossil fuels.
+        </h2>
+
+        <p class="intro-text">
+            Renewable energy comes from naturally replenished sources
+            such as sunlight, wind, and moving water. These technologies
+            can help reduce greenhouse-gas emissions while providing
+            cleaner ways to produce electricity.
+        </p>
+
+    </section>
+
+
+    <!-- ENERGY CAROUSEL -->
+    <section id="energy" class="energy-section">
+
+        <div class="section-heading">
+            <div>
+                <p class="section-label">EXPLORE</p>
+                <h2>Three Sources of Clean Energy</h2>
+            </div>
+
+            <div class="carousel-buttons">
+                <button onclick="changeSlide(-1)">←</button>
+                <button onclick="changeSlide(1)">→</button>
+            </div>
+        </div>
+
+
+        <div class="carousel">
+
+            <!-- SOLAR -->
+            <article class="energy-card active">
+
+                <div class="energy-image solar-image"></div>
+
+                <div class="energy-content">
+
+                    <span class="energy-number">01</span>
+
+                    <h3>Solar Energy</h3>
+
+                    <p>
+                        Solar panels capture energy from sunlight and
+                        convert it into electricity using photovoltaic cells.
+                    </p>
+
+                    <a href="details.html?topic=solar" class="learn-btn">
+                        Learn More →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- WIND -->
+            <article class="energy-card">
+
+                <div class="energy-image wind-image"></div>
+
+                <div class="energy-content">
+
+                    <span class="energy-number">02</span>
+
+                    <h3>Wind Energy</h3>
+
+                    <p>
+                        Wind turbines use the movement of air to rotate
+                        blades connected to generators that produce electricity.
+                    </p>
+
+                    <a href="details.html?topic=wind" class="learn-btn">
+                        Learn More →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- HYDRO -->
+            <article class="energy-card">
+
+                <div class="energy-image hydro-image"></div>
+
+                <div class="energy-content">
+
+                    <span class="energy-number">03</span>
+
+                    <h3>Hydroelectric Power</h3>
+
+                    <p>
+                        Hydroelectric systems use moving or falling water
+                        to turn turbines and generate electricity.
+                    </p>
+
+                    <a href="details.html?topic=hydro" class="learn-btn">
+                        Learn More →
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+        <div class="carousel-dots">
+            <span class="dot active" onclick="showSlide(0)"></span>
+            <span class="dot" onclick="showSlide(1)"></span>
+            <span class="dot" onclick="showSlide(2)"></span>
+        </div>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section">
+
+        <p class="section-label">HOW IT HELPS</p>
+
+        <h2>Why Clean Energy Matters</h2>
+
+        <div class="benefit-grid">
+
+            <div class="benefit-card">
+                <div class="icon">🌎</div>
+                <h3>Climate Action</h3>
+                <p>
+                    Renewable energy can reduce reliance on fossil-fuel
+                    electricity generation and help lower greenhouse-gas emissions.
+                </p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="icon">♻️</div>
+                <h3>Natural Resources</h3>
+                <p>
+                    Solar radiation, wind, and flowing water are naturally
+                    replenished resources that can support long-term energy needs.
+                </p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="icon">⚡</div>
+                <h3>Energy Innovation</h3>
+                <p>
+                    New technologies allow students and communities to
+                    explore smarter and more sustainable energy systems.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- VIDEO -->
+    <section class="video-section">
+
+        <div class="video-text">
+
+            <p class="section-label">WATCH & LEARN</p>
+
+            <h2>
+                Renewable Energy
+                Explained
+            </h2>
+
+            <p>
+                Watch an educational overview of how solar, wind,
+                and hydropower technologies generate electricity.
+            </p>
+
+        </div>
+
+        <div class="video-box">
+
+            <iframe
+                src="https://www.youtube.com/embed/phrCx_oow1E"
+                title="Renewable Energy Explained"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+    </section>
+
+
+    <!-- STUDENT INITIATIVES -->
+    <section id="initiatives" class="initiative-section">
+
+        <p class="section-label">STUDENTS CAN MAKE A DIFFERENCE</p>
+
+        <h2>Student-Led Sustainability</h2>
+
+        <div class="initiative-grid">
+
+            <div class="initiative-card">
+                <span>01</span>
+                <h3>Campus Solar Projects</h3>
+                <p>
+                    Students can study how rooftop solar systems
+                    could support school buildings and facilities.
+                </p>
+            </div>
+
+            <div class="initiative-card">
+                <span>02</span>
+                <h3>Energy-Saving Campaigns</h3>
+                <p>
+                    School organizations can promote responsible
+                    electricity use through awareness campaigns.
+                </p>
+            </div>
+
+            <div class="initiative-card">
+                <span>03</span>
+                <h3>Clean-Tech Projects</h3>
+                <p>
+                    ICT and engineering students can experiment with
+                    sensors, monitoring systems, and renewable-energy concepts.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GET INVOLVED -->
+    <section id="involved" class="involved-section">
+
+        <div>
+
+            <p class="section-label">TAKE ACTION</p>
+
+            <h2>
+                Start Your Own
+                Clean-Energy Journey.
+            </h2>
+
+            <p>
+                You don't have to be an engineer to contribute.
+                Learn, experiment, participate in school projects,
+                and share reliable information about sustainability.
+            </p>
+
+        </div>
+
+        <div class="action-list">
+
+            <div>
+                <span>01</span>
+                <p>Learn about renewable technologies</p>
+            </div>
+
+            <div>
+                <span>02</span>
+                <p>Join environmental or STEM organizations</p>
+            </div>
+
+            <div>
+                <span>03</span>
+                <p>Create a small clean-tech project</p>
+            </div>
+
+            <div>
+                <span>04</span>
+                <p>Promote responsible energy use at school</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        <div class="logo">Eco<span>Pulse</span></div>
+        <p>Learning today. Powering tomorrow.</p>
+    </footer>
+
 
     <script src="script.js"></script>
+
 </body>
-            </html>
-                        
+                </html>
+    
