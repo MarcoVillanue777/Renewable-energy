@@ -1,7 +1,7 @@
-
+/* filename: style.css */
 :root {
     --bg-dark: #070b14;
-    --card-bg: rgba(20, 30, 55, 0.45);
+    --card-bg: rgba(20, 30, 55, 0.55);
     --text-light: #f8fafc;
     --text-muted: #94a3b8;
     --accent-emerald: #10b981;
@@ -30,8 +30,8 @@ body {
     width: 140%;
     height: 140%;
     background: radial-gradient(circle at 15% 20%, #0d2e27 0%, transparent 45%),
-                radial-gradient(circle at 85% 75%, #0f1d3a 0%, transparent 50%),
-                background-color: #050810;
+                radial-gradient(circle at 85% 75%, #0f1d3a 0%, transparent 50%);
+    background-color: #050810;
     z-index: -1;
     animation: planetaryDrift 25s ease infinite alternate;
 }
@@ -194,25 +194,33 @@ nav .nav-btn:hover, nav .nav-btn.active {
 .carousel-control.prev { left: 1rem; }
 .carousel-control.next { right: 1rem; }
 
-/* Dashboard Content Grid Cards */
+/* Interactive Cards Grid Layout */
 .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; width: 100%; max-width: 1050px; }
+
+/* CRITICAL INTERACTION FIX FOR MOUSE POINTER AND CARD HOVERS */
 .card {
     background: var(--card-bg);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 16px;
     padding: 1.5rem;
-    cursor: pointer;
+    cursor: pointer; /* Makes it instantly obvious it's clickable */
     text-align: left;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(10px);
+    user-select: none;
 }
-.card:hover { transform: translateY(-6px); border-color: var(--accent-emerald); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+.card:hover { 
+    transform: translateY(-6px); 
+    border-color: var(--accent-emerald); 
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.15); 
+}
 .card-img { width: 100%; height: 180px; background-size: cover; background-position: center; border-radius: 10px; margin-bottom: 1.2rem; }
 .card h4 { font-size: 1.35rem; margin-bottom: 0.6rem; color: #fff; }
 .card p { color: var(--text-muted); line-height: 1.5; margin-bottom: 1.2rem; font-size: 0.95rem; }
-.card-link-hint { color: var(--accent-emerald); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.5px; text-transform: uppercase; }
+.card-link-hint { color: var(--accent-emerald); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.5px; text-transform: uppercase; transition: padding-left 0.2s; }
+.card:hover .card-link-hint { padding-left: 5px; }
 
-/* Dynamic Full Page Deep Dive Overlay Drawer System */
+/* Deep Dive Modal System */
 .drawer-overlay {
     position: fixed;
     top: 0;
@@ -237,7 +245,7 @@ nav .nav-btn:hover, nav .nav-btn.active {
     overflow: hidden;
     position: relative;
     box-shadow: 0 25px 50px rgba(0,0,0,0.6);
-    animation: drawerPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation: drawerPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 @keyframes drawerPop { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
@@ -262,7 +270,7 @@ nav .nav-btn:hover, nav .nav-btn.active {
 .drawer-body-text h2 { font-size: 2.4rem; margin-bottom: 1.5rem; color: #fff; }
 .drawer-body-text p { color: #cbd5e1; font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; }
 
-/* Video Embedding Aspect Ratio Block */
+/* Video Frame Integration Styling */
 .video-integration-box {
     margin-top: 3.5rem;
     padding-top: 2rem;
@@ -272,11 +280,11 @@ nav .nav-btn:hover, nav .nav-btn.active {
 .video-container {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%; /* 16:9 Standard Box Metric */
+    padding-bottom: 56.25%;
     height: 0;
     border-radius: 14px;
     overflow: hidden;
     border: 1px solid rgba(255,255,255,0.1);
 }
 .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-    
+                           
