@@ -1,9 +1,10 @@
+/* filename: script.js */
 
 const articleDatabase = {
     'solar': {
         title: "Solar Photovoltaic Frameworks & Grid Modernization",
         banner: "https://unsplash.com",
-        videoUrl: "https://youtube.com", // Educational Renewable Energy Guide Reference
+        videoUrl: "https://youtube.com", 
         htmlContent: `
             <p>Solar energy deployment represents our most potent weapon against unchecked planetary carbon escalation. By leveraging modern silicon semiconductor configurations, solar grids alter light-wave capture methodologies entirely.</p>
             <p>When sunlight impacts the layered photovoltaic infrastructure, photons drive electron displacement to convert kinetic sunlight energy directly into clean raw direct current (DC). This current feeds multi-stage string inverters, seamlessly outputting alternating current (AC) directly back to neighborhood micro-grids without standard system line losses or emissions.</p>
@@ -36,7 +37,7 @@ const articleDatabase = {
         videoUrl: "https://youtube.com",
         htmlContent: `
             <p>Led entirely by student engineering cohorts, the Campus Micro-Grid Project showcases how localized clean energy frameworks can scale within urban education centers.</p>
-            <p>The team deployed dual-axis tracking solar modules across six unused flat dormitory rooftops. These intelligent mounts actively map the sun's location throughout the day, increasing overall structural energy yields by roughly 22% compared to standard static configurations. The captured power is stored in centralized lithium-iron-phosphate (LiFePO4) battery arrays to safely offset heavy electrical usage during evening campus hours.</p>
+            <p>The team deployed dual-axis tracking solar modules across six unused flat dormitory rooftops. These intelligent mounts actively map the sun's location throughout the day, increasing overall structural energy yields by roughly 22% compared to static configurations. The captured power is stored in centralized lithium-iron-phosphate (LiFePO4) battery arrays to safely offset heavy electrical usage during evening campus hours.</p>
             <p><strong>Measurable Impact:</strong> This active installation successfully removes over 120 metric tons of carbon emissions annually, paving a scalable roadmap for neighboring municipal properties to mimic.</p>
         `
     },
@@ -72,7 +73,7 @@ const articleDatabase = {
     }
 };
 
-// --- SINGLE-PAGE APPLICATION ROUTER ENGINE ---
+// --- SPA NAVIGATION ROUTER ---
 const navButtons = document.querySelectorAll('.nav-btn');
 const pages = document.querySelectorAll('.page-section');
 
@@ -99,11 +100,10 @@ function navigateTo(pageId) {
             page.classList.remove('active');
         }
     });
-    // Reset view scrolling position on switch
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// --- SECURE INTERACTIVE CAROUSEL MANAGER ---
+// --- SECURE CAROUSEL CONTROLLER ---
 let currentSlideIndex = 0;
 const slides = document.querySelectorAll('.carousel-slide');
 
@@ -125,10 +125,12 @@ function moveSlide(direction) {
     showSlide(currentSlideIndex);
 }
 
-// --- DYNAMIC CONTENT DRAWER CORE INTERACTIVES ---
+// --- MODAL GENERATOR LOGIC ---
 function openDeepDive(articleKey) {
     const article = articleDatabase[articleKey];
     if (!article) return;
 
-    // Inject active information into text blocks smoothly
-                                  
+    document.getElementById('drawerTitle').innerText = article.title;
+    document.getElementById('drawerFullDescription').innerHTML = article.htmlContent;
+    document.getElementById('drawerImageHeader').style.backgroundImage = `url('${article.banner}')`;
+
