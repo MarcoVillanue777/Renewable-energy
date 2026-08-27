@@ -1,136 +1,219 @@
-/* filename: script.js */
+// ==========================================
+// ECO PULSE JAVASCRIPT
+// ==========================================
 
-const articleDatabase = {
-    'solar': {
-        title: "Solar Photovoltaic Frameworks & Grid Modernization",
-        banner: "https://unsplash.com",
-        videoUrl: "https://youtube.com", 
-        htmlContent: `
-            <p>Solar energy deployment represents our most potent weapon against unchecked planetary carbon escalation. By leveraging modern silicon semiconductor configurations, solar grids alter light-wave capture methodologies entirely.</p>
-            <p>When sunlight impacts the layered photovoltaic infrastructure, photons drive electron displacement to convert kinetic sunlight energy directly into clean raw direct current (DC). This current feeds multi-stage string inverters, seamlessly outputting alternating current (AC) directly back to neighborhood micro-grids without standard system line losses or emissions.</p>
-            <p><strong>Why It Matters:</strong> Standard legacy grids depend heavily on steady coal or natural gas combustion. Scaling clean solar arrays offsets raw generation dependencies, systematically lowering baseline emissions levels during optimal daylight hours.</p>
-        `
-    },
-    'wind': {
-        title: "Kinetic Turbine Engineering & Offshore Grid Feeds",
-        banner: "https://unsplash.com",
-        videoUrl: "https://youtube.com",
-        htmlContent: `
-            <p>Modern wind turbines harness global atmospheric temperature variants to generate immense kinetic rotational mechanics. Instead of consuming materials, wind power relies on pressure discrepancies created by natural planetary cycles.</p>
-            <p>As wind passes the aerodynamic lift profiles of specialized carbon-fiber blades, it forces the internal central drivetrain rotor to spin. This low-speed shaft connects straight to a multi-stage mechanical speed-multiplier gearbox, spinning copper internal magnetic coils past fixed stators at thousands of RPMs to produce massive electrical yields cleanly.</p>
-            <p><strong>System Resilience:</strong> Offshore wind fields feature highly predictable, consistent wind paths. Integrating these massive installations ensures that coastal cities can source steady baseline energy without building massive carbon-heavy power stations.</p>
-        `
-    },
-    'hydro': {
-        title: "Hydroelectric Dam Dynamics & High-Output Generation",
-        banner: "https://unsplash.com",
-        videoUrl: "https://youtube.com",
-        htmlContent: `
-            <p>Hydropower converts the natural gravitational descent of water systems into exceptionally stable electrical energy profiles. Unlike sun or wind patterns, massive reservoir currents provide constant baseline grid storage control mechanics.</p>
-            <p>Water flowing from high elevations travels through restricted, high-pressure intake pipes known as penstocks. It exits forcefully against the precision curved blades of deep-well water turbines, transforming fluid mechanics directly into physical rotational power. This system powers high-output synchronous generators tied directly to cross-country transmission systems.</p>
-            <p><strong>Environmental Balance:</strong> Beyond generating reliable clean power, advanced run-of-river installations preserve natural aquatic flow baselines, demonstrating how advanced clean technologies protect nearby delicate ecosystems.</p>
-        `
-    },
-    'campus-solar': {
-        title: "Case Study: The Campus Micro-Grid Implementation",
-        banner: "https://unsplash.com",
-        videoUrl: "https://youtube.com",
-        htmlContent: `
-            <p>Led entirely by student engineering cohorts, the Campus Micro-Grid Project showcases how localized clean energy frameworks can scale within urban education centers.</p>
-            <p>The team deployed dual-axis tracking solar modules across six unused flat dormitory rooftops. These intelligent mounts actively map the sun's location throughout the day, increasing overall structural energy yields by roughly 22% compared to static configurations. The captured power is stored in centralized lithium-iron-phosphate (LiFePO4) battery arrays to safely offset heavy electrical usage during evening campus hours.</p>
-            <p><strong>Measurable Impact:</strong> This active installation successfully removes over 120 metric tons of carbon emissions annually, paving a scalable roadmap for neighboring municipal properties to mimic.</p>
-        `
-    },
-    'kinetic-path': {
-        title: "The Kinetic Walkway: Harvesting Pedestrian Motion",
-        banner: "https://unsplash.com",
-        videoUrl: "https://youtube.com",
-        htmlContent: `
-            <p>The Kinetic Walkway represents a brilliant design merge between urban architecture and specialized physics, capturing energy from daily pedestrian traffic.</p>
-            <p>Beneath custom-engineered rubber walkway tiles lie compact electromagnetic induction generators. When a student steps on a tile, it drops minutely by 5 millimeters, forcing an internal magnetic core through induction wire coils to generate a brief electrical pulse. This current flows directly into supercapacitor banks to cleanly illuminate nearby paths and campus safety structures all night.</p>
-            <p><strong>Future Scalability:</strong> Initial campus trials confirm that retrofitting high-traffic transport hubs with kinetic arrays can cleanly meet localized grid lighting needs using purely ambient human movement.</p>
-        `
-    },
-    'open-source': {
-        title: "Accessing Open-Source CleanTech Repositories",
-        banner: "https://unsplash.com",
-        videoUrl: "https://youtube.com",
-        htmlContent: `
-            <p>True ecological progress demands collaborative, open developer data spaces. The CleanTech Hub opens access to complex structural plans and software systems without restrictive licensing layers.</p>
-            <p>Students can download free microcontroller firmware codebases designed to automate off-grid solar chargers, track optimal solar placement angles, and safely manage battery cells. The blueprints leverage affordable, globally accessible components, allowing engineering groups to construct high-accuracy telemetry systems anywhere on Earth.</p>
-            <p><strong>Join the Codebase:</strong> Explore our public version-control repositories to submit system optimization patches, expand documentation parameters, or build custom extensions for your hometown project.</p>
-        `
-    },
-    'incubators': {
-        title: "Securing Seed Funding via Green Tech Pipelines",
-        banner: "https://unsplash.com",
-        videoUrl: "https://youtube.com",
-        htmlContent: `
-            <p>Transforming an early laboratory prototype into a highly reliable community installation requires financial support and dedicated professional coaching paths.</p>
-            <p>Our incubator database connects active student research teams with sustainability grants, equity-free seed funds, and green venture pipelines. Accepted prototype teams receive dedicated workspace facilities, engineering labs, and direct advisory support from veteran cleantech founders to safely navigate manufacturing and regional grid regulations.</p>
-            <p><strong>Submission Guidelines:</strong> Ensure your project application details core efficiency metrics, scalable field roadmaps, and detailed layout budgets to catch the attention of environmental grant committees.</p>
-        `
+
+// ---------- MOBILE MENU ----------
+
+function toggleMenu() {
+
+    const nav = document.querySelector("nav");
+
+    if (nav.style.display === "flex") {
+        nav.style.display = "none";
+    } else {
+        nav.style.display = "flex";
+        nav.style.flexDirection = "column";
+        nav.style.position = "absolute";
+        nav.style.top = "75px";
+        nav.style.right = "5%";
+        nav.style.background = "#0c1c17";
+        nav.style.padding = "20px";
+        nav.style.borderRadius = "15px";
     }
-};
-
-// --- SPA NAVIGATION ROUTER ---
-const navButtons = document.querySelectorAll('.nav-btn');
-const pages = document.querySelectorAll('.page-section');
-
-navButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const targetPage = button.getAttribute('data-page');
-        navigateTo(targetPage);
-    });
-});
-
-function navigateTo(pageId) {
-    navButtons.forEach(btn => {
-        if(btn.getAttribute('data-page') === pageId) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
-    });
-
-    pages.forEach(page => {
-        if (page.id === pageId) {
-            page.classList.add('active');
-        } else {
-            page.classList.remove('active');
-        }
-    });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// --- SECURE CAROUSEL CONTROLLER ---
-let currentSlideIndex = 0;
-const slides = document.querySelectorAll('.carousel-slide');
+
+// ---------- CAROUSEL ----------
+
+let currentSlide = 0;
+
+const cards = document.querySelectorAll(".energy-card");
+const dots = document.querySelectorAll(".dot");
+
 
 function showSlide(index) {
-    if (index >= slides.length) currentSlideIndex = 0;
-    if (index < 0) currentSlideIndex = slides.length - 1;
 
-    slides.forEach((slide, idx) => {
-        if (idx === currentSlideIndex) {
-            slide.classList.add('active');
-        } else {
-            slide.classList.remove('active');
-        }
+    if (cards.length === 0) {
+        return;
+    }
+
+    if (index >= cards.length) {
+        currentSlide = 0;
+    }
+
+    if (index < 0) {
+        currentSlide = cards.length - 1;
+    }
+
+    cards.forEach(function(card) {
+        card.classList.remove("active");
     });
+
+    dots.forEach(function(dot) {
+        dot.classList.remove("active");
+    });
+
+    cards[currentSlide].classList.add("active");
+
+    if (dots[currentSlide]) {
+        dots[currentSlide].classList.add("active");
+    }
 }
 
-function moveSlide(direction) {
-    currentSlideIndex += direction;
-    showSlide(currentSlideIndex);
+
+function changeSlide(direction) {
+
+    currentSlide += direction;
+
+    showSlide(currentSlide);
 }
 
-// --- MODAL GENERATOR LOGIC ---
-function openDeepDive(articleKey) {
-    const article = articleDatabase[articleKey];
-    if (!article) return;
 
-    document.getElementById('drawerTitle').innerText = article.title;
-    document.getElementById('drawerFullDescription').innerHTML = article.htmlContent;
-    document.getElementById('drawerImageHeader').style.backgroundImage = `url('${article.banner}')`;
+// Automatically move carousel every 6 seconds
 
+if (cards.length > 0) {
+
+    setInterval(function() {
+
+        currentSlide++;
+
+        showSlide(currentSlide);
+
+    }, 6000);
+}
+
+
+// ---------- TOPIC DATABASE ----------
+
+const topics = {
+
+    solar: {
+
+        title: "Solar Energy",
+
+        intro:
+            "Solar energy uses sunlight as a renewable source of energy. Solar photovoltaic panels convert light from the sun into electrical energy.",
+
+        how:
+            "When sunlight reaches photovoltaic cells inside a solar panel, the energy from the light causes electrons to move. This produces direct-current electricity, which can then be converted into alternating current for many everyday electrical systems.",
+
+        why:
+            "Solar energy provides a way to produce electricity without directly burning fossil fuels. Rooftop and utility-scale solar systems can be used in different settings, from homes and schools to large power installations.",
+
+        student:
+            "Students can learn about photovoltaic technology, monitor energy use around campus, participate in solar-energy awareness projects, or build educational projects using small solar panels and sensors.",
+
+        image:
+            "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1600&q=80",
+
+        video:
+            "https://www.youtube.com/embed/xKxrkht7CpY"
+
+    },
+
+
+    wind: {
+
+        title: "Wind Energy",
+
+        intro:
+            "Wind energy uses the movement of air to produce electricity. Wind turbines transform the kinetic energy of moving air into mechanical and then electrical energy.",
+
+        how:
+            "Wind pushes against the blades of a turbine, causing them to rotate. The rotating system drives a generator, which converts mechanical energy into electricity.",
+
+        why:
+            "Wind is naturally replenished and can provide electricity without directly burning fossil fuels. Wind farms can be built on land or offshore where suitable wind resources are available.",
+
+        student:
+            "Students can explore wind-turbine design, build small educational turbine models, study wind speed, or create sensor systems that collect information about local environmental conditions.",
+
+        image:
+            "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=80",
+
+        video:
+            "https://www.youtube.com/embed/xy9nj94xvKA"
+
+    },
+
+
+    hydro: {
+
+        title: "Hydroelectric Power",
+
+        intro:
+            "Hydroelectric power generates electricity by using the movement of water. Water flowing from a higher elevation can turn a turbine connected to an electrical generator.",
+
+        how:
+            "Water is directed through a hydroelectric system and flows toward a turbine. The moving water rotates the turbine, which drives a generator and produces electricity.",
+
+        why:
+            "Hydropower can provide renewable electricity and, in some systems, can also help support grid reliability. Its environmental effects depend on how individual projects are designed and operated.",
+
+        student:
+            "Students can study water cycles, turbine design, energy conversion, and environmental impacts. They can also explore educational hydropower simulations and STEM activities.",
+
+        image:
+            "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=1600&q=80",
+
+        video:
+            "https://www.youtube.com/embed/phrCx_oow1E"
+
+    }
+
+};
+
+
+// ---------- DETAILS PAGE ----------
+
+const params = new URLSearchParams(window.location.search);
+
+const topicName = params.get("topic");
+
+
+if (topicName && topics[topicName]) {
+
+    const topic = topics[topicName];
+
+    const title = document.getElementById("topic-title");
+    const intro = document.getElementById("topic-intro");
+    const how = document.getElementById("topic-how");
+    const why = document.getElementById("topic-why");
+    const student = document.getElementById("topic-student");
+    const image = document.getElementById("topic-image");
+    const video = document.getElementById("topic-video");
+
+    if (title) {
+        title.textContent = topic.title;
+    }
+
+    if (intro) {
+        intro.textContent = topic.intro;
+    }
+
+    if (how) {
+        how.textContent = topic.how;
+    }
+
+    if (why) {
+        why.textContent = topic.why;
+    }
+
+    if (student) {
+        student.textContent = topic.student;
+    }
+
+    if (image) {
+        image.style.backgroundImage =
+            `linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.3)), url("${topic.image}")`;
+    }
+
+    if (video) {
+        video.src = topic.video;
+    }
+
+    document.title =
+        "EcoPulse | " + topic.title;
+
+        }
