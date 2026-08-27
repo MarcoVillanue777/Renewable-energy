@@ -1,0 +1,95 @@
+<!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPulse | Sustainable Energy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="moving-bg"></div>
+
+    <header>
+        <div class="logo">Eco<span>Pulse</span></div>
+        <nav>
+            <button class="nav-btn active" data-page="home">Home</button>
+            <button class="nav-btn" data-page="how-it-works">How It Works</button>
+            <button class="nav-btn" data-page="initiatives">Student Initiatives</button>
+            <button class="nav-btn" data-page="get-involved">Get Involved</button>
+        </nav>
+        <div class="search-container">
+            <input type="text" class="glowing-search" placeholder="Search innovations...">
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <!-- PAGE 1: HOME -->
+        <section id="home" class="page-section active">
+            <div class="hero-content">
+                <h1>Powering Tomorrow, Natively.</h1>
+                <p>Promoting the development and adoption of sustainable energy sources to secure our planet's future.</p>
+                <button class="cta-btn" onclick="navigateTo('how-it-works')">Explore Clean Energy</button>
+            </div>
+        </section>
+
+        <!-- PAGE 2: HOW IT WORKS -->
+        <section id="how-it-works" class="page-section">
+            <h2>The Mechanics of Clean Energy</h2>
+            <p class="subtitle">Understanding how renewable sources combat climate change by eliminating greenhouse emissions.</p>
+            
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <h3>☀️ Solar Power</h3>
+                    <p>Photovoltaic cells capture sunlight and convert it directly into electricity at the atomic level, generating clean power with zero emissions.</p>
+                </div>
+                <div class="carousel-slide">
+                    <h3>💨 Wind Energy</h3>
+                    <p>Massive kinetic wind turbines harness atmospheric air currents, spinning generators to feed clean electrical grids globally.</p>
+                </div>
+                <div class="carousel-slide">
+                    <h3>💧 Hydroelectric Power</h3>
+                    <p>Controlled gravitational water flow forces massive internal turbines to spin, generating highly reliable, baseline renewable electricity.</p>
+                </div>
+                <button class="carousel-control prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="carousel-control next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+        </section>
+
+        <!-- PAGE 3: INITIATIVES -->
+        <section id="initiatives" class="page-section">
+            <h2>Student-Led Sustainability</h2>
+            <p class="subtitle">Discover local projects and grassroots innovations driven by the next generation.</p>
+            <div class="grid-container">
+                <div class="card">
+                    <h4>Campus Solar Grid</h4>
+                    <p>Engineering students deployed micro-solar tracking arrays across campus roofs, offsetting 35% of daytime power usage.</p>
+                </div>
+                <div class="card">
+                    <h4>The Kinetic Walkway</h4>
+                    <p>A prototype student path that converts footsteps into usable electrical energy to power local library lighting networks.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 4: GET INVOLVED -->
+        <section id="get-involved" class="page-section">
+            <h2>Clean Energy Resources</h2>
+            <p class="subtitle">Access toolkits, career pathways, and technological platforms to jumpstart your innovations.</p>
+            <div class="grid-container">
+                <div class="card resource-card">
+                    <h4>Open-Source CleanTech</h4>
+                    <p>Access free codebases, hardware blueprints, and datasets for building localized wind and solar monitoring systems.</p>
+                </div>
+                <div class="card resource-card">
+                    <h4>Green Tech Incubators</h4>
+                    <p>Apply for student grants, mentorship programs, and venture pipelines to scale your environmental prototypes.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+                  </html>
+  
